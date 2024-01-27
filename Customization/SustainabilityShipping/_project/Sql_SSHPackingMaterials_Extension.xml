@@ -1,0 +1,28 @@
+﻿<Sql TableName="SSHPackingMaterials_Extension" TableSchemaXml="#CDATA">
+    <CDATA name="TableSchemaXml"><![CDATA[<table name="SSHPackingMaterials_Extension">
+  <col name="CompanyID" type="Int" default="Zero" />
+  <col name="inventoryID" type="Int" />
+  <col name="isPackingMaterial" type="Bit" nullable="true" />
+  <col name="SustainabilityID" type="Int" nullable="true" />
+  <col name="FragilityLevel" type="Int" nullable="true" />
+  <col name="PackingGuidance" type="VarChar(255)" nullable="true" />
+  <col name="CO2Ekg" type="Decimal(19,2)" nullable="true" />
+  <col name="PreferredPackingMaterial" type="Int" nullable="true" />
+  <col name="PackedWidth" type="Decimal(19,4)" nullable="true" />
+  <col name="PackedHeight" type="Decimal(19,4)" nullable="true" />
+  <col name="PackedLength" type="Decimal(19,4)" nullable="true" />
+  <col name="PackingMaterialQty" type="Int" nullable="true" />
+  <col name="CreatedByID" type="UniqueIdentifier" />
+  <col name="CreatedByScreenID" type="Char(8)" />
+  <col name="CreatedDateTime" type="DateTime" />
+  <col name="LastModifiedByID" type="UniqueIdentifier" />
+  <col name="LastModifiedByScreenID" type="Char(8)" />
+  <col name="LastModifiedDateTime" type="DateTime" />
+  <col name="tstamp" type="Timestamp" />
+  <col name="NoteID" type="UniqueIdentifier" nullable="true" />
+  <index name="UsrSSHPackingMaterials_Extension_PK" clustered="true" primary="true" unique="true">
+    <col name="CompanyID" />
+    <col name="inventoryID" />
+  </index>
+</table>]]></CDATA>
+</Sql>
