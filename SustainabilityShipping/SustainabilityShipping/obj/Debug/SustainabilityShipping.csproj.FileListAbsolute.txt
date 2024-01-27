@@ -1,0 +1,7 @@
+C:\Acumatica\23r2\SustainShippers\SustainabilityShipping\SustainabilityShipping\obj\Debug\SustainabilityShipping.csproj.AssemblyReference.cache
+C:\Acumatica\23r2\SustainShippers\SustainabilityShipping\SustainabilityShipping\obj\Debug\SustainabilityShipping.csproj.CoreCompileInputs.cache
+C:\Acumatica\23r2\Acu_Hackathon\Bin\SustainabilityShipping.dll
+C:\Acumatica\23r2\Acu_Hackathon\Bin\SustainabilityShipping.pdb
+C:\Acumatica\23r2\SustainShippers\SustainabilityShipping\SustainabilityShipping\obj\Debug\SustainabilityShipping.csproj.CopyComplete
+C:\Acumatica\23r2\SustainShippers\SustainabilityShipping\SustainabilityShipping\obj\Debug\SustainabilityShipping.dll
+C:\Acumatica\23r2\SustainShippers\SustainabilityShipping\SustainabilityShipping\obj\Debug\SustainabilityShipping.pdb
