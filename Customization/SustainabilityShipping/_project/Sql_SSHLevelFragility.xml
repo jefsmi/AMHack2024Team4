@@ -1,0 +1,12 @@
+﻿<Sql TableName="SSHLevelFragility" TableSchemaXml="#CDATA">
+    <CDATA name="TableSchemaXml"><![CDATA[<table name="SSHLevelFragility">
+  <col name="CompanyID" type="Int" default="Zero" />
+  <col name="FragilityLevel" type="Int" />
+  <col name="LevelName" type="VarChar(40)" nullable="true" />
+  <col name="LevelDescription" type="VarChar(255)" nullable="true" />
+  <index name="UsrSSHLevelFragility_PK" clustered="true" primary="true" unique="true">
+    <col name="CompanyID" />
+    <col name="FragilityLevel" />
+  </index>
+</table>]]></CDATA>
+</Sql>

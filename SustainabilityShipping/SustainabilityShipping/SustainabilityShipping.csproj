@@ -56,6 +56,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAC\SSHPackingMaterialsExtension .cs" />
+    <Compile Include="DAC\SSHLevelSustainability.cs" />
+    <Compile Include="DAC\SSHLevelFragility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
