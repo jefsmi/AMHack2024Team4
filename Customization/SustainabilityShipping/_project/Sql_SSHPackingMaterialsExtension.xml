@@ -1,5 +1,5 @@
-﻿<Sql TableName="SSHPackingMaterials_Extension" TableSchemaXml="#CDATA">
-    <CDATA name="TableSchemaXml"><![CDATA[<table name="SSHPackingMaterials_Extension">
+﻿<Sql TableName="SSHPackingMaterialsExtension" TableSchemaXml="#CDATA">
+    <CDATA name="TableSchemaXml"><![CDATA[<table name="SSHPackingMaterialsExtension">
   <col name="CompanyID" type="Int" default="Zero" />
   <col name="inventoryID" type="Int" />
   <col name="isPackingMaterial" type="Bit" nullable="true" />
@@ -20,7 +20,7 @@
   <col name="LastModifiedDateTime" type="DateTime" />
   <col name="tstamp" type="Timestamp" />
   <col name="NoteID" type="UniqueIdentifier" nullable="true" />
-  <index name="UsrSSHPackingMaterials_Extension_PK" clustered="true" primary="true" unique="true">
+  <index name="UsrSSHPackingMaterialsExtension_PK" clustered="true" primary="true" unique="true">
     <col name="CompanyID" />
     <col name="inventoryID" />
   </index>
