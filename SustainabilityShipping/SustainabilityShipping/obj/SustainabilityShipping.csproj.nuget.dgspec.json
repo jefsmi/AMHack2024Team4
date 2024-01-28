@@ -1,30 +1,36 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Acumatica\\23r2\\SustainShippers\\SustainabilityShipping\\SustainabilityShipping\\SustainabilityShipping.csproj": {}
+    "C:\\dev\\AM\\Hack2024Team4\\SustainabilityShipping\\SustainabilityShipping\\SustainabilityShipping.csproj": {}
   },
   "projects": {
-    "C:\\Acumatica\\23r2\\SustainShippers\\SustainabilityShipping\\SustainabilityShipping\\SustainabilityShipping.csproj": {
+    "C:\\dev\\AM\\Hack2024Team4\\SustainabilityShipping\\SustainabilityShipping\\SustainabilityShipping.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Acumatica\\23r2\\SustainShippers\\SustainabilityShipping\\SustainabilityShipping\\SustainabilityShipping.csproj",
+        "projectUniqueName": "C:\\dev\\AM\\Hack2024Team4\\SustainabilityShipping\\SustainabilityShipping\\SustainabilityShipping.csproj",
         "projectName": "SustainabilityShipping",
-        "projectPath": "C:\\Acumatica\\23r2\\SustainShippers\\SustainabilityShipping\\SustainabilityShipping\\SustainabilityShipping.csproj",
-        "packagesPath": "C:\\Users\\pchen\\.nuget\\packages\\",
-        "outputPath": "C:\\Acumatica\\23r2\\SustainShippers\\SustainabilityShipping\\SustainabilityShipping\\obj\\",
+        "projectPath": "C:\\dev\\AM\\Hack2024Team4\\SustainabilityShipping\\SustainabilityShipping\\SustainabilityShipping.csproj",
+        "packagesPath": "C:\\Users\\smith3j\\.nuget\\packages\\",
+        "outputPath": "C:\\dev\\AM\\Hack2024Team4\\SustainabilityShipping\\SustainabilityShipping\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\pchen\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\smith3j\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net48"
         ],
         "sources": {
-          "C:\\AcumaticaTestSDK\\TestSDK_24_093_0157_161\\packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.telerik.com/v3/index.json": {}
         },
         "frameworks": {
           "net48": {
