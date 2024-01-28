@@ -1,0 +1,12 @@
+﻿<Sql TableName="SSHLevelSustainability" TableSchemaXml="#CDATA">
+    <CDATA name="TableSchemaXml"><![CDATA[<table name="SSHLevelSustainability">
+  <col name="CompanyID" type="Int" default="Zero" />
+  <col name="SustainabilityID" type="Int" />
+  <col name="LevelName" type="VarChar(40)" nullable="true" />
+  <col name="LevelDescription" type="VarChar(255)" nullable="true" />
+  <index name="UsrSSHLevelSustainability_PK" clustered="true" primary="true" unique="true">
+    <col name="CompanyID" />
+    <col name="SustainabilityID" />
+  </index>
+</table>]]></CDATA>
+</Sql>
