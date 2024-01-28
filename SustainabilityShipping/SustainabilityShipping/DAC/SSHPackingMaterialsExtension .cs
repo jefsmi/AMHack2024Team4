@@ -6,7 +6,7 @@ namespace SustainabilityShipping
 {
 
     [PXTable(typeof(InventoryItem.inventoryID), IsOptional = true)]
-    public  class SSHPackingMaterialsExtension : PXCacheExtension<InventoryItem>
+    public class SSHPackingMaterialsExtension : PXCacheExtension<InventoryItem>
 
     {
         public static bool IsActive() => true;
@@ -26,6 +26,12 @@ namespace SustainabilityShipping
 
         #region SustainabilityID
         [PXDBInt()]
+        [PXSelector(typeof(Search<SSHLevelSustainability.sustainabilityID>),
+
+                new Type[] { typeof(SSHLevelSustainability.levelName),
+                            typeof(SSHLevelSustainability.levelDescription) },
+                SubstituteKey = typeof(SSHLevelSustainability.levelName),
+                DescriptionField = typeof(SSHLevelSustainability.levelDescription))]
         [PXUIField(DisplayName = "Sustainability ID")]
         public virtual int? SustainabilityID { get; set; }
         public abstract class sustainabilityID : PX.Data.BQL.BqlInt.Field<sustainabilityID> { }
@@ -33,6 +39,12 @@ namespace SustainabilityShipping
 
         #region FragilityLevel
         [PXDBInt()]
+        [PXSelector(typeof(Search<SSHLevelFragility.fragilityLevel>),
+
+                new Type[] { typeof(SSHLevelFragility.levelName),
+                            typeof(SSHLevelFragility.levelDescription) },
+                SubstituteKey = typeof(SSHLevelFragility.levelName),
+                DescriptionField = typeof(SSHLevelFragility.levelDescription))]
         [PXUIField(DisplayName = "Fragility Level")]
         public virtual int? FragilityLevel { get; set; }
         public abstract class fragilityLevel : PX.Data.BQL.BqlInt.Field<fragilityLevel> { }
@@ -47,13 +59,15 @@ namespace SustainabilityShipping
 
         #region Co2ekg
         [PXDBDecimal()]
-        [PXUIField(DisplayName = "Co2ekg")]
+        [PXUIField(DisplayName = "CO2 KG")]
         public virtual Decimal? Co2ekg { get; set; }
         public abstract class co2ekg : PX.Data.BQL.BqlDecimal.Field<co2ekg> { }
         #endregion
 
         #region PreferredPackingMaterial
-        [PXDBInt()]
+
+        [Inventory(typeof(Search<InventoryItem.inventoryID, Where<SustainabilityShipping.SSHPackingMaterialsExtension.isPackingMaterial, Equal<True>>>)
+            , typeof(InventoryItem.inventoryCD), typeof(InventoryItem.descr))]
         [PXUIField(DisplayName = "Preferred Packing Material")]
         public virtual int? PreferredPackingMaterial { get; set; }
         public abstract class preferredPackingMaterial : PX.Data.BQL.BqlInt.Field<preferredPackingMaterial> { }
@@ -87,53 +101,5 @@ namespace SustainabilityShipping
         public abstract class packingMaterialQty : PX.Data.BQL.BqlInt.Field<packingMaterialQty> { }
         #endregion
 
-        #region CreatedByID
-        [PXDBCreatedByID()]
-        public virtual Guid? CreatedByID { get; set; }
-        public abstract class createdByID : PX.Data.BQL.BqlGuid.Field<createdByID> { }
-        #endregion
-
-        #region CreatedByScreenID
-        [PXDBCreatedByScreenID()]
-        public virtual string CreatedByScreenID { get; set; }
-        public abstract class createdByScreenID : PX.Data.BQL.BqlString.Field<createdByScreenID> { }
-        #endregion
-
-        #region CreatedDateTime
-        [PXDBCreatedDateTime()]
-        public virtual DateTime? CreatedDateTime { get; set; }
-        public abstract class createdDateTime : PX.Data.BQL.BqlDateTime.Field<createdDateTime> { }
-        #endregion
-
-        #region LastModifiedByID
-        [PXDBLastModifiedByID()]
-        public virtual Guid? LastModifiedByID { get; set; }
-        public abstract class lastModifiedByID : PX.Data.BQL.BqlGuid.Field<lastModifiedByID> { }
-        #endregion
-
-        #region LastModifiedByScreenID
-        [PXDBLastModifiedByScreenID()]
-        public virtual string LastModifiedByScreenID { get; set; }
-        public abstract class lastModifiedByScreenID : PX.Data.BQL.BqlString.Field<lastModifiedByScreenID> { }
-        #endregion
-
-        #region LastModifiedDateTime
-        [PXDBLastModifiedDateTime()]
-        public virtual DateTime? LastModifiedDateTime { get; set; }
-        public abstract class lastModifiedDateTime : PX.Data.BQL.BqlDateTime.Field<lastModifiedDateTime> { }
-        #endregion
-
-        #region Tstamp
-        [PXDBTimestamp()]
-        [PXUIField(DisplayName = "Tstamp")]
-        public virtual byte[] Tstamp { get; set; }
-        public abstract class tstamp : PX.Data.BQL.BqlByteArray.Field<tstamp> { }
-        #endregion
-
-        #region Noteid
-        [PXNote()]
-        public virtual Guid? Noteid { get; set; }
-        public abstract class noteid : PX.Data.BQL.BqlGuid.Field<noteid> { }
-        #endregion
     }
 }
