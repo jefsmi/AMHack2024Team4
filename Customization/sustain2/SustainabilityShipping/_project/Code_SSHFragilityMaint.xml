@@ -1,0 +1,21 @@
+﻿<Graph ClassName="SSHFragilityMaint" Source="#CDATA" IsNew="True" FileType="NewGraph">
+    <CDATA name="Source"><![CDATA[using System;
+using PX.Data;
+
+namespace SustainabilityShipping
+{
+  public class SSHFragilityMaint : PXGraph<SSHFragilityMaint>
+  {
+
+    public PXSave<SSHLevelFragility> Save;
+    public PXCancel<SSHLevelFragility> Cancel;
+
+
+    public PXSelect<SSHLevelFragility> MasterView;
+
+
+
+
+  }
+}]]></CDATA>
+</Graph>

@@ -1,3 +1,5 @@
 is_global = true
 build_property.RootNamespace = CromulentBisgetti.ContainerPacking
-build_property.ProjectDir = C:\dev\AM\Hack2024Team4\SustainabilityShipping\CromulentBisgetti.ContainerPacking\
+build_property.ProjectDir = C:\Acumatica\23r2\SustainShippers\SustainabilityShipping\CromulentBisgetti.ContainerPacking\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 

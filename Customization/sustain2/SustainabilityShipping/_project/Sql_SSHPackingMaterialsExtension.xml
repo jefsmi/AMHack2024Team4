@@ -1,0 +1,20 @@
+﻿<Sql TableName="SSHPackingMaterialsExtension" TableSchemaXml="#CDATA">
+    <CDATA name="TableSchemaXml"><![CDATA[<table name="SSHPackingMaterialsExtension">
+  <col name="CompanyID" type="Int" default="Zero" />
+  <col name="inventoryID" type="Int" />
+  <col name="isPackingMaterial" type="Bit" nullable="true" />
+  <col name="SustainabilityID" type="Int" nullable="true" />
+  <col name="FragilityLevel" type="Int" nullable="true" />
+  <col name="PackingGuidance" type="VarChar(255)" nullable="true" />
+  <col name="CO2Ekg" type="Decimal(19,2)" nullable="true" />
+  <col name="PreferredPackingMaterial" type="Int" nullable="true" />
+  <col name="PackedWidth" type="Decimal(19,4)" nullable="true" />
+  <col name="PackedHeight" type="Decimal(19,4)" nullable="true" />
+  <col name="PackedLength" type="Decimal(19,4)" nullable="true" />
+  <col name="PackingMaterialQty" type="Int" nullable="true" />
+  <index name="UsrSSHPackingMaterialsExtension_PK" clustered="true" primary="true" unique="true">
+    <col name="CompanyID" />
+    <col name="inventoryID" />
+  </index>
+</table>]]></CDATA>
+</Sql>

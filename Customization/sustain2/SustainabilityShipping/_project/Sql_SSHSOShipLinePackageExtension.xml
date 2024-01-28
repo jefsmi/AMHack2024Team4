@@ -1,0 +1,12 @@
+﻿<Sql TableName="SSHSOShipLinePackageExtension" TableSchemaXml="#CDATA">
+    <CDATA name="TableSchemaXml"><![CDATA[<table name="SSHSOShipLinePackageExtension">
+  <col name="CompanyID" type="Int" default="Zero" />
+  <col name="RecordID" type="Int" />
+  <col name="PreferredPackingMaterial" type="Int" nullable="true" />
+  <col name="PackingMaterialQty" type="Int" nullable="true" />
+  <index name="UsrSSHSOShipLinePackageExtension_PK" clustered="true" primary="true" unique="true">
+    <col name="CompanyID" />
+    <col name="RecordID" />
+  </index>
+</table>]]></CDATA>
+</Sql>

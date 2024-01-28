@@ -1,0 +1,19 @@
+﻿<Graph ClassName="SSHSustainabilityMaint" Source="#CDATA" IsNew="True" FileType="NewGraph">
+    <CDATA name="Source"><![CDATA[using System;
+using PX.Data;
+
+namespace SustainabilityShipping
+{
+  
+public class SSHSustainabilityMaint : PXGraph<SSHSustainabilityMaint>
+  {
+
+    public PXSave<SSHLevelSustainability> Save;
+    public PXCancel<SSHLevelSustainability> Cancel;
+
+    public PXSelect<SSHLevelSustainability> MasterView;
+
+   
+      }
+}]]></CDATA>
+</Graph>

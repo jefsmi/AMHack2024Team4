@@ -1,0 +1,55 @@
+﻿<Page path="~/Pages/SS/SSHI2001.aspx" pageSource="jZPRb9owEMafqdT/wfLEK4FK06YqQdugjEowoaaje5tMcgunOk5mO6Xdw/723TlAs7XVypP15e7zfT8fcf+DWKkCxEKZoqFDIidvpFgq58Hyhxlq0n5Hj4qLFuj8GmE3KIMoxcfGVxd3YPwNWmjqRHrbgBRrpTFXHq7gZwPOJ/KH0o70SZXvfdN0fnk2HI4GytX3g8xJcWm2YNG7RPJd3w8FUlyj546vxvMhD1NL0R+fnsSUoR3v+qEGsUbrG6VXym//Ozi3kwHdfj6pjKcE4nKayIzOI54zSCutMphXOgfLH+vtNJXiqjGKEqVg78iIbHpxfX+++jZVXqVVYzMITjlFsm2pa0tpPocbjnIdIN1gzoOOhsO+PD0R+x8n+aJKRtQ4r9CoDWr0D+kW6xpNMSAwM6uKIC7pu+80ryyWyj5w0kS2+fncqeB5e/FEab1R2e2kKktlchdgkB4984HUf/Ix+ahDbvwCyLOXQS6OcJ5w/GwxDxYFHZ4wfJziALmLUcwBiy2Vj94O63sp0ls0XLfnQvuqdbXjpZ1jDoe1bJks4A50CNzrTBLUcOsSyg3YRE6BXkW7wLWtZq7xpNJNadyYhU5/KweDGYLOExkc+YUfR38/lCJ6ZecUXGax9liZo8HZKw2OexOcju3vQjc9/j5CiyD6m0ELKepQipljir8gvDJtItO5QZNXOykuaG/pz3rY9SWaztPwda1Dxjk+Kbvfy+godBaPR3hm5f4A">
+    <Content ID="cont2" ParentId="phL" TypeFullName="System.Web.UI.WebControls.Content">
+        <Children Key="Controls">
+            <AddItem>
+                <PXGrid TypeFullName="PX.Web.UI.PXGrid">
+                    <Prop Key="Virtual:ApplyStylesheetSkin" />
+                    <Prop Key="ID" Value="grid" />
+                    <Prop Key="Height" Value="150px" />
+                    <Prop Key="SkinID" Value="Primary" />
+                    <Prop Key="Width" Value="100%" />
+                    <Prop Key="AllowAutoHide" Value="false" />
+                    <Prop Key="AutoSize.Enabled" Value="True" />
+                    <Prop Key="AutoSize.Container" Value="Window" />
+                    <Prop Key="AutoSize.MinHeight" Value="150" />
+                    <Prop Key="DataSourceID" Value="ds" />
+                    <Children Key="Levels">
+                        <AddItem>
+                            <PXGridLevel TypeFullName="PX.Web.UI.PXGridLevel">
+                                <Prop Key="DataMember" Value="MasterView" />
+                                <Children Key="Columns">
+                                    <AddItem>
+                                        <PXGridColumn TypeFullName="PX.Web.UI.PXGridColumn">
+                                            <Prop Key="DataField" Value="FragilityLevel" />
+                                            <Prop Key="Width" Value="70" />
+                                        </PXGridColumn>
+                                    </AddItem>
+                                    <AddItem>
+                                        <PXGridColumn TypeFullName="PX.Web.UI.PXGridColumn">
+                                            <Prop Key="DataField" Value="LevelName" />
+                                            <Prop Key="Width" Value="180" />
+                                        </PXGridColumn>
+                                    </AddItem>
+                                    <AddItem>
+                                        <PXGridColumn TypeFullName="PX.Web.UI.PXGridColumn">
+                                            <Prop Key="DataField" Value="LevelDescription" />
+                                            <Prop Key="Width" Value="280" />
+                                        </PXGridColumn>
+                                    </AddItem>
+                                </Children>
+                            </PXGridLevel>
+                        </AddItem>
+                    </Children>
+                </PXGrid>
+            </AddItem>
+            <PXGrid ID="grid" OriginalIndex="0" Remove="True" />
+        </Children>
+    </Content>
+    <PXGridLevel DataMember="DetailsView" ParentId="phL_grid_Levels#0" TypeFullName="PX.Web.UI.PXGridLevel">
+        <Children Key="Columns">
+            <PXGridColumn DataField="LevelName" OriginalIndex="0" Remove="True" />
+            <PXGridColumn DataField="LevelDescription" OriginalIndex="1" Remove="True" />
+            <PXGridColumn DataField="FragilityLevel" OriginalIndex="2" Remove="True" />
+        </Children>
+    </PXGridLevel>
+</Page>
