@@ -1,0 +1,260 @@
+﻿<Dashboard>
+    <data-set>
+        <relations format-version="3" relations-version="20230921" main-table="Dashboard">
+            <link from="DashboardParameter (DashboardID)" to="Dashboard (DashboardID)" />
+            <link from="DashboardParameter (NoteID)" to="DashboardParameterKvExt (RecordID)" type="RowKvExt" />
+            <link from="Widget (DashboardID)" to="Dashboard (DashboardID)" type="WeakIfEmpty" isEmpty="OwnerName" />
+            <link from="Widget (NoteID)" to="WidgetKvExt (RecordID)" type="RowKvExt" />
+            <link from="SiteMap (ScreenID)" to="Dashboard (ScreenID)" />
+            <link from="MUIScreen (NodeID)" to="SiteMap (NodeID)" />
+            <link from="MUIWorkspace (WorkspaceID)" to="MUIScreen (WorkspaceID)" type="FromMaster" linkname="workspaceToScreen" split-location="yes" updateable="True" />
+            <link from="MUISubcategory (SubcategoryID)" to="MUIScreen (SubcategoryID)" type="FromMaster" updateable="True" />
+            <link from="MUITile (ScreenID)" to="SiteMap (ScreenID)" />
+            <link from="MUIWorkspace (WorkspaceID)" to="MUITile (WorkspaceID)" type="FromMaster" linkname="workspaceToTile" split-location="yes" updateable="True" />
+            <link from="MUIArea (AreaID)" to="MUIWorkspace (AreaID)" type="FromMaster" updateable="True" />
+            <link from="MUIPinnedScreen (NodeID, WorkspaceID)" to="MUIScreen (NodeID, WorkspaceID)" type="WeakIfEmpty" isEmpty="Username" />
+            <link from="MUIFavoriteWorkspace (WorkspaceID)" to="MUIWorkspace (WorkspaceID)" type="WeakIfEmpty" isEmpty="Username" />
+        </relations>
+        <layout>
+            <table name="Dashboard">
+                <table name="DashboardParameter" uplink="(DashboardID) = (DashboardID)">
+                    <table name="DashboardParameterKvExt" uplink="(NoteID) = (RecordID)" />
+                </table>
+                <table name="Widget" uplink="(DashboardID) = (DashboardID)">
+                    <table name="WidgetKvExt" uplink="(NoteID) = (RecordID)" />
+                </table>
+                <table name="SiteMap" uplink="(ScreenID) = (ScreenID)">
+                    <table name="MUIScreen" uplink="(NodeID) = (NodeID)">
+                        <table name="MUIPinnedScreen" uplink="(NodeID, WorkspaceID) = (NodeID, WorkspaceID)" />
+                    </table>
+                    <table name="MUITile" uplink="(ScreenID) = (ScreenID)" />
+                </table>
+            </table>
+            <table name="MUIWorkspace">
+                <table name="MUIFavoriteWorkspace" uplink="(WorkspaceID) = (WorkspaceID)" />
+            </table>
+            <table name="MUISubcategory" />
+            <table name="MUIArea" />
+        </layout>
+        <data>
+            <Dashboard>
+                <row DashboardID="1000223" Name="ACU - Sustainability Tracking" DefaultOwnerRole="Administrator" ScreenID="DB000042" AllowCopy="0" Workspace1Size="8" Workspace2Size="4" IsPortal="0" ExposeViaMobile="0" NoteID="e79fb3a3-a4bd-ee11-903d-14755b6082da">
+                    <Widget WidgetID="2840" Caption="Green Packaging Material Usage" Column="0" Row="1" Workspace="1" Width="12" Height="114" Type="PX.Dashboards.Widgets.PXTrendcardWidget" IsActive="1" NoteID="74599812-a7bd-ee11-903d-14755b6082da">
+                        <column name="Settings"><![CDATA[<?xml version="1.0" encoding="utf-16"?>
+<TrendcardSettings>
+  <InquiryScreenID>GI640595</InquiryScreenID>
+  <RefreshData>5</RefreshData>
+  <AggregateField>PackingMaterialInventoryItem_Formula8c53ccb9318e45d7bbf918e40d639c3d</AggregateField>
+  <AggregateFunction>SUM</AggregateFunction>
+  <NormalColor>Green</NormalColor>
+  <WarningColor>Yellow</WarningColor>
+  <ErrorColor>Red</ErrorColor>
+  <TimelineField>SOShipment_shipDate</TimelineField>
+  <Period>PX.Dashboards.Widgets.TrendPeriodLastMonth</Period>
+  <FilterRows>
+    <WidgetFilterRow>
+      <LineNbr>-2147483647</LineNbr>
+      <IsActive>true</IsActive>
+      <OpenBrackets>1</OpenBrackets>
+      <DataField>SOShipLineSplitPackage_preferredPackingMaterial</DataField>
+      <Condition>0</Condition>
+      <IsParameter>false</IsParameter>
+      <Value1>MUSHPAPER</Value1>
+      <CloseBrackets>0</CloseBrackets>
+      <Operation>O</Operation>
+    </WidgetFilterRow>
+    <WidgetFilterRow>
+      <LineNbr>-2147483646</LineNbr>
+      <IsActive>true</IsActive>
+      <OpenBrackets>0</OpenBrackets>
+      <DataField>SOShipLineSplitPackage_preferredPackingMaterial</DataField>
+      <Condition>0</Condition>
+      <IsParameter>false</IsParameter>
+      <Value1>RECYCLEP</Value1>
+      <CloseBrackets>1</CloseBrackets>
+      <Operation>A</Operation>
+    </WidgetFilterRow>
+  </FilterRows>
+</TrendcardSettings>]]></column>
+                    </Widget>
+                    <Widget WidgetID="2839" Caption="Conventional Packaging Material Usage" Column="0" Row="0" Workspace="1" Width="12" Height="114" Type="PX.Dashboards.Widgets.PXTrendcardWidget" IsActive="1" NoteID="51db8cb6-a6bd-ee11-903d-14755b6082da">
+                        <column name="Settings"><![CDATA[<?xml version="1.0" encoding="utf-16"?>
+<TrendcardSettings>
+  <InquiryScreenID>GI640595</InquiryScreenID>
+  <RefreshData>5</RefreshData>
+  <AggregateField>PackingMaterialInventoryItem_Formula8c53ccb9318e45d7bbf918e40d639c3d</AggregateField>
+  <AggregateFunction>SUM</AggregateFunction>
+  <NormalColor>Red</NormalColor>
+  <WarningColor>Yellow</WarningColor>
+  <ErrorColor>Green</ErrorColor>
+  <TimelineField>SOShipment_shipDate</TimelineField>
+  <Period>PX.Dashboards.Widgets.TrendPeriodLastMonth</Period>
+  <FilterRows>
+    <WidgetFilterRow>
+      <LineNbr>-2147483647</LineNbr>
+      <IsActive>true</IsActive>
+      <OpenBrackets>1</OpenBrackets>
+      <DataField>SOShipLineSplitPackage_preferredPackingMaterial</DataField>
+      <Condition>0</Condition>
+      <IsParameter>false</IsParameter>
+      <Value1>PLASTICBUB</Value1>
+      <CloseBrackets>0</CloseBrackets>
+      <Operation>O</Operation>
+    </WidgetFilterRow>
+    <WidgetFilterRow>
+      <LineNbr>-2147483646</LineNbr>
+      <IsActive>true</IsActive>
+      <OpenBrackets>0</OpenBrackets>
+      <DataField>SOShipLineSplitPackage_preferredPackingMaterial</DataField>
+      <Condition>0</Condition>
+      <IsParameter>false</IsParameter>
+      <Value1>STYROFOAM</Value1>
+      <CloseBrackets>1</CloseBrackets>
+      <Operation>A</Operation>
+    </WidgetFilterRow>
+  </FilterRows>
+</TrendcardSettings>]]></column>
+                    </Widget>
+                    <Widget WidgetID="2838" Caption="CO2 kg by Customer by Material" Column="0" Row="2" Workspace="0" Width="12" Height="300" Type="PX.Dashboards.Widgets.PXChartWidget" IsActive="1" NoteID="3a4524c0-a5bd-ee11-903d-14755b6082da">
+                        <column name="Settings"><![CDATA[<?xml version="1.0" encoding="utf-16"?>
+<ChartSettings>
+  <InquiryScreenID>GI640595</InquiryScreenID>
+  <RefreshData>30</RefreshData>
+  <ChartType>3</ChartType>
+  <LegendPosition>5</LegendPosition>
+  <CategoryField>Customer_AcctCD</CategoryField>
+  <CategorySortType>1</CategorySortType>
+  <CategorySortOrder>1</CategorySortOrder>
+  <CategoryTotalAfter>10</CategoryTotalAfter>
+  <CategoryShowTotal>false</CategoryShowTotal>
+  <CategoryDateRounding>0</CategoryDateRounding>
+  <SeriesField>SOShipLineSplitPackage_preferredPackingMaterial</SeriesField>
+  <SeriesSortType>1</SeriesSortType>
+  <SeriesSortOrder>1</SeriesSortOrder>
+  <SeriesTotalAfter>10</SeriesTotalAfter>
+  <SeriesDateRounding>0</SeriesDateRounding>
+  <SeriesShowTotal>false</SeriesShowTotal>
+  <ValueField>PackingMaterialInventoryItem_Formula8c53ccb9318e45d7bbf918e40d639c3d</ValueField>
+  <ValueAggregate>SUM</ValueAggregate>
+  <ValueFormat>#,##0</ValueFormat>
+  <FilterRows>
+    <WidgetFilterRow>
+      <LineNbr>-2147483647</LineNbr>
+      <IsActive>true</IsActive>
+      <OpenBrackets>0</OpenBrackets>
+      <DataField>SOShipLineSplitPackage_preferredPackingMaterial</DataField>
+      <Condition>12</Condition>
+      <IsParameter>false</IsParameter>
+      <CloseBrackets>0</CloseBrackets>
+      <Operation>A</Operation>
+    </WidgetFilterRow>
+  </FilterRows>
+</ChartSettings>]]></column>
+                    </Widget>
+                    <Widget WidgetID="2837" Caption="Shipping Material Used by Week" Column="0" Row="1" Workspace="0" Width="12" Height="380" Type="PX.Dashboards.Widgets.PXChartWidget" IsActive="1" NoteID="72a42c7c-a5bd-ee11-903d-14755b6082da">
+                        <column name="Settings"><![CDATA[<?xml version="1.0" encoding="utf-16"?>
+<ChartSettings>
+  <InquiryScreenID>GI640595</InquiryScreenID>
+  <RefreshData>30</RefreshData>
+  <ChartType>1</ChartType>
+  <LegendPosition>5</LegendPosition>
+  <CategoryField>SOShipment_shipDate</CategoryField>
+  <CategorySortType>4</CategorySortType>
+  <CategorySortOrder>0</CategorySortOrder>
+  <CategoryTotalAfter>10</CategoryTotalAfter>
+  <CategoryShowTotal>false</CategoryShowTotal>
+  <CategoryDateRounding>7</CategoryDateRounding>
+  <CategoryFormat>yyyy W</CategoryFormat>
+  <SeriesField>SOShipLineSplitPackage_preferredPackingMaterial</SeriesField>
+  <SeriesSortType>1</SeriesSortType>
+  <SeriesSortOrder>1</SeriesSortOrder>
+  <SeriesTotalAfter>10</SeriesTotalAfter>
+  <SeriesDateRounding>0</SeriesDateRounding>
+  <SeriesShowTotal>false</SeriesShowTotal>
+  <ValueField>SOShipLineSplitPackage_Formulaf2e80c726ae241a4ba8688f97d03fca0</ValueField>
+  <ValueAggregate>SUM</ValueAggregate>
+  <ValueFormat>#,##0</ValueFormat>
+  <FilterRows>
+    <WidgetFilterRow>
+      <LineNbr>-2147483647</LineNbr>
+      <IsActive>true</IsActive>
+      <OpenBrackets>0</OpenBrackets>
+      <DataField>SOShipLineSplitPackage_preferredPackingMaterial</DataField>
+      <Condition>12</Condition>
+      <IsParameter>false</IsParameter>
+      <CloseBrackets>0</CloseBrackets>
+      <Operation>A</Operation>
+    </WidgetFilterRow>
+  </FilterRows>
+</ChartSettings>]]></column>
+                    </Widget>
+                    <Widget WidgetID="2836" Caption="CO2 kg by Material by Week" Column="0" Row="0" Workspace="0" Width="12" Height="350" Type="PX.Dashboards.Widgets.PXChartWidget" IsActive="1" NoteID="de192db6-a4bd-ee11-903d-14755b6082da">
+                        <column name="Settings"><![CDATA[<?xml version="1.0" encoding="utf-16"?>
+<ChartSettings>
+  <InquiryScreenID>GI640595</InquiryScreenID>
+  <RefreshData>30</RefreshData>
+  <ChartType>3</ChartType>
+  <LegendPosition>5</LegendPosition>
+  <CategoryField>SOShipment_shipDate</CategoryField>
+  <CategorySortType>4</CategorySortType>
+  <CategorySortOrder>0</CategorySortOrder>
+  <CategoryTotalAfter>10</CategoryTotalAfter>
+  <CategoryShowTotal>false</CategoryShowTotal>
+  <CategoryDateRounding>7</CategoryDateRounding>
+  <CategoryFormat>yyyy W</CategoryFormat>
+  <SeriesField>SOShipLineSplitPackage_preferredPackingMaterial</SeriesField>
+  <SeriesSortType>0</SeriesSortType>
+  <SeriesSortOrder>0</SeriesSortOrder>
+  <SeriesTotalAfter>12</SeriesTotalAfter>
+  <SeriesDateRounding>0</SeriesDateRounding>
+  <SeriesShowTotal>false</SeriesShowTotal>
+  <ValueField>PackingMaterialInventoryItem_Formula8c53ccb9318e45d7bbf918e40d639c3d</ValueField>
+  <ValueAggregate>SUM</ValueAggregate>
+  <ValueFormat>#,##0</ValueFormat>
+  <FilterRows>
+    <WidgetFilterRow>
+      <LineNbr>-2147483647</LineNbr>
+      <IsActive>true</IsActive>
+      <OpenBrackets>0</OpenBrackets>
+      <DataField>SOShipment_shipDate</DataField>
+      <Condition>3</Condition>
+      <IsParameter>false</IsParameter>
+      <Value1>@Today-90</Value1>
+      <CloseBrackets>0</CloseBrackets>
+      <Operation>A</Operation>
+    </WidgetFilterRow>
+    <WidgetFilterRow>
+      <LineNbr>-2147483646</LineNbr>
+      <IsActive>true</IsActive>
+      <OpenBrackets>0</OpenBrackets>
+      <DataField>SOShipLineSplitPackage_preferredPackingMaterial</DataField>
+      <Condition>12</Condition>
+      <IsParameter>false</IsParameter>
+      <CloseBrackets>0</CloseBrackets>
+      <Operation>A</Operation>
+    </WidgetFilterRow>
+  </FilterRows>
+</ChartSettings>]]></column>
+                    </Widget>
+                    <SiteMap Title="Team 4 - Package Sustainability Tracking" Url="~/Frames/Default.aspx" NodeID="39bac703-8187-4732-b7c6-a16e546f80ee" ParentID="00000000-0000-0000-0000-000000000000" SelectedUI="E">
+                        <MUIScreen IsPortal="0" WorkspaceID="bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb" Order="30" SubcategoryID="29d8e453-ee74-405d-abe1-930728d1f9ba">
+                            <MUIPinnedScreen IsPortal="0" Username="" IsPinned="1" />
+                        </MUIScreen>
+                    </SiteMap>
+                </row>
+            </Dashboard>
+            <MUIWorkspace>
+                <row IsPortal="1" WorkspaceID="bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb" Order="5" Title="Data Views" Icon="poll" IsSystem="1">
+                    <MUIFavoriteWorkspace IsPortal="0" Username="" IsFavorite="1" />
+                </row>
+                <row IsPortal="0" WorkspaceID="bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb" Order="32" Title="Data Views" Icon="poll" IsSystem="1">
+                    <MUIFavoriteWorkspace IsPortal="0" Username="" IsFavorite="1" />
+                </row>
+            </MUIWorkspace>
+            <MUISubcategory>
+                <row IsPortal="1" SubcategoryID="29d8e453-ee74-405d-abe1-930728d1f9ba" Order="1478" Name="Dashboards" Icon="" IsSystem="1" />
+                <row IsPortal="0" SubcategoryID="29d8e453-ee74-405d-abe1-930728d1f9ba" Order="1478" Name="Dashboards" Icon="" IsSystem="1" />
+            </MUISubcategory>
+        </data>
+    </data-set>
+</Dashboard>

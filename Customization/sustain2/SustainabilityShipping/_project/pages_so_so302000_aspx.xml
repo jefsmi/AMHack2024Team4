@@ -16,4 +16,7 @@
             <PXGridColumn DataField="SubItemID" OriginalIndex="2" />
         </Children>
     </PXGridLevel>
+    <PXGridColumn DataField="Description" ParentId="phG_tab_Items#3_gridPackages_Levels#0_Columns#3" TypeFullName="PX.Web.UI.PXGridColumn">
+        <Prop Key="Label" Value="Percent Filled" />
+    </PXGridColumn>
 </Page>
