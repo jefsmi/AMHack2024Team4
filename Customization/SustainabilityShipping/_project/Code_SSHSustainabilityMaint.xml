@@ -4,21 +4,16 @@ using PX.Data;
 
 namespace SustainabilityShipping
 {
-  public class SSHSustainabilityMaint : PXGraph<SSHSustainabilityMaint>
+  
+public class SSHSustainabilityMaint : PXGraph<SSHSustainabilityMaint>
   {
 
     public PXSave<SSHLevelSustainability> Save;
     public PXCancel<SSHLevelSustainability> Cancel;
 
-    public PXSelect<SSHLevelSustainability> DetailsView;
+    public PXSelect<SSHLevelSustainability> MasterView;
 
-   public override void Persist(){
-    if(DetailsView.Current != null){
-          SSHLevelSustainability sustainability = new SSHLevelSustainability { SustainabilityID = DetailsView.Current.SustainabilityID, LevelName = DetailsView.Current.LevelName, LevelDescription = DetailsView.Current.LevelDescription };
-          DetailsView.Insert(sustainability);
-          base.Persist();
-        }
-    }
-  }
+   
+      }
 }]]></CDATA>
 </Graph>

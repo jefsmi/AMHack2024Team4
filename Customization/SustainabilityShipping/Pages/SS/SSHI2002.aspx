@@ -4,7 +4,7 @@
 <asp:Content ID="cont1" ContentPlaceHolderID="phDS" Runat="Server">
 	<px:PXDataSource ID="ds" runat="server" Visible="True" Width="100%"
         TypeName="SustainabilityShipping.SSHSustainabilityMaint"
-        PrimaryView="DetailsView"
+        PrimaryView="MasterView"
         >
 		<CallbackCommands>
 
@@ -14,7 +14,7 @@
 <asp:Content ID="cont2" ContentPlaceHolderID="phL" runat="Server">
 	<px:PXGrid ID="grid" runat="server" DataSourceID="ds" Width="100%" Height="150px" SkinID="Primary" AllowAutoHide="false">
 		<Levels>
-			<px:PXGridLevel DataMember="DetailsView">
+			<px:PXGridLevel DataMember="MasterView">
 			    <Columns>
 				<px:PXGridColumn DataField="SustainabilityID" Width="70" />
 				<px:PXGridColumn DataField="LevelName" Width="180" />

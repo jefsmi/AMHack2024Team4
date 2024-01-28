@@ -12,14 +12,6 @@
   <col name="PackedHeight" type="Decimal(19,4)" nullable="true" />
   <col name="PackedLength" type="Decimal(19,4)" nullable="true" />
   <col name="PackingMaterialQty" type="Int" nullable="true" />
-  <col name="CreatedByID" type="UniqueIdentifier" />
-  <col name="CreatedByScreenID" type="Char(8)" />
-  <col name="CreatedDateTime" type="DateTime" />
-  <col name="LastModifiedByID" type="UniqueIdentifier" />
-  <col name="LastModifiedByScreenID" type="Char(8)" />
-  <col name="LastModifiedDateTime" type="DateTime" />
-  <col name="tstamp" type="Timestamp" />
-  <col name="NoteID" type="UniqueIdentifier" nullable="true" />
   <index name="UsrSSHPackingMaterialsExtension_PK" clustered="true" primary="true" unique="true">
     <col name="CompanyID" />
     <col name="inventoryID" />

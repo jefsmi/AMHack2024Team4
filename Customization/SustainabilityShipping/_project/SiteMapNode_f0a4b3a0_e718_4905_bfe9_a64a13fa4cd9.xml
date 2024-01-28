@@ -25,7 +25,7 @@
         </layout>
         <data>
             <SiteMap>
-                <row Position="21521" Title="Sustainability Levels" Url="~/Pages/SS/SSHI2002.aspx" ScreenID="SSHI2002" NodeID="7947088d-3028-4757-8539-c2d217f2572a" ParentID="00000000-0000-0000-0000-000000000000" SelectedUI="E" />
+                <row Position="21518" Title="Item Sustainability Levels" Url="~/Pages/SS/SSHI2002.aspx" ScreenID="SSHI2002" NodeID="f0a4b3a0-e718-4905-bfe9-a64a13fa4cd9" ParentID="00000000-0000-0000-0000-000000000000" SelectedUI="E" />
             </SiteMap>
         </data>
     </data-set>
