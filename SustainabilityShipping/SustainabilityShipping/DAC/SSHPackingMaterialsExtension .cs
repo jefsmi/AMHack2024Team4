@@ -26,6 +26,12 @@ namespace SustainabilityShipping
 
         #region SustainabilityID
         [PXDBInt()]
+        [PXSelector(typeof(Search<SSHLevelSustainability.sustainabilityID>),
+
+                new Type[] { typeof(SSHLevelSustainability.levelName),
+                            typeof(SSHLevelSustainability.levelDescription) },
+                SubstituteKey = typeof(SSHLevelSustainability.levelName),
+                DescriptionField = typeof(SSHLevelSustainability.levelDescription))]
         [PXUIField(DisplayName = "Sustainability ID")]
         public virtual int? SustainabilityID { get; set; }
         public abstract class sustainabilityID : PX.Data.BQL.BqlInt.Field<sustainabilityID> { }
@@ -33,6 +39,12 @@ namespace SustainabilityShipping
 
         #region FragilityLevel
         [PXDBInt()]
+        [PXSelector(typeof(Search<SSHLevelFragility.fragilityLevel>),
+
+                new Type[] { typeof(SSHLevelFragility.levelName),
+                            typeof(SSHLevelFragility.levelDescription) },
+                SubstituteKey = typeof(SSHLevelFragility.levelName),
+                DescriptionField = typeof(SSHLevelFragility.levelDescription))]
         [PXUIField(DisplayName = "Fragility Level")]
         public virtual int? FragilityLevel { get; set; }
         public abstract class fragilityLevel : PX.Data.BQL.BqlInt.Field<fragilityLevel> { }
@@ -53,7 +65,9 @@ namespace SustainabilityShipping
         #endregion
 
         #region PreferredPackingMaterial
-        [PXDBInt()]
+        
+        [Inventory(typeof(Search<InventoryItem.inventoryID, Where<SustainabilityShipping.SSHPackingMaterialsExtension.isPackingMaterial,Equal<True>>>)
+            , typeof(InventoryItem.inventoryCD), typeof(InventoryItem.descr), IsKey = true)]
         [PXUIField(DisplayName = "Preferred Packing Material")]
         public virtual int? PreferredPackingMaterial { get; set; }
         public abstract class preferredPackingMaterial : PX.Data.BQL.BqlInt.Field<preferredPackingMaterial> { }
