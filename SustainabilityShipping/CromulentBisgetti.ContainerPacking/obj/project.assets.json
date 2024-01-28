@@ -180,37 +180,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\smith3j\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\pchen\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\dev\\AM\\Hack2024Team4\\SustainabilityShipping\\CromulentBisgetti.ContainerPacking\\CromulentBisgetti.ContainerPacking.csproj",
+      "projectUniqueName": "C:\\Acumatica\\23r2\\SustainShippers\\SustainabilityShipping\\CromulentBisgetti.ContainerPacking\\CromulentBisgetti.ContainerPacking.csproj",
       "projectName": "CromulentBisgetti.ContainerPacking",
-      "projectPath": "C:\\dev\\AM\\Hack2024Team4\\SustainabilityShipping\\CromulentBisgetti.ContainerPacking\\CromulentBisgetti.ContainerPacking.csproj",
-      "packagesPath": "C:\\Users\\smith3j\\.nuget\\packages\\",
-      "outputPath": "C:\\dev\\AM\\Hack2024Team4\\SustainabilityShipping\\CromulentBisgetti.ContainerPacking\\obj\\",
+      "projectPath": "C:\\Acumatica\\23r2\\SustainShippers\\SustainabilityShipping\\CromulentBisgetti.ContainerPacking\\CromulentBisgetti.ContainerPacking.csproj",
+      "packagesPath": "C:\\Users\\pchen\\.nuget\\packages\\",
+      "outputPath": "C:\\Acumatica\\23r2\\SustainShippers\\SustainabilityShipping\\CromulentBisgetti.ContainerPacking\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\smith3j\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\pchen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
       ],
       "sources": {
+        "C:\\AcumaticaTestSDK\\TestSDK_24_093_0157_161\\packages": {},
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://nuget.telerik.com/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netstandard2.0": {
@@ -246,7 +237,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

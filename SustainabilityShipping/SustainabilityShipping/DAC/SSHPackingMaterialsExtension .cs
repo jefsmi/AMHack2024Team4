@@ -59,7 +59,7 @@ namespace SustainabilityShipping
 
         #region Co2ekg
         [PXDBDecimal()]
-        [PXUIField(DisplayName = "Co2ekg")]
+        [PXUIField(DisplayName = "CO2 KG")]
         public virtual Decimal? Co2ekg { get; set; }
         public abstract class co2ekg : PX.Data.BQL.BqlDecimal.Field<co2ekg> { }
         #endregion
@@ -67,7 +67,7 @@ namespace SustainabilityShipping
         #region PreferredPackingMaterial
         
         [Inventory(typeof(Search<InventoryItem.inventoryID, Where<SustainabilityShipping.SSHPackingMaterialsExtension.isPackingMaterial,Equal<True>>>)
-            , typeof(InventoryItem.inventoryCD), typeof(InventoryItem.descr), IsKey = true)]
+            , typeof(InventoryItem.inventoryCD), typeof(InventoryItem.descr))]
         [PXUIField(DisplayName = "Preferred Packing Material")]
         public virtual int? PreferredPackingMaterial { get; set; }
         public abstract class preferredPackingMaterial : PX.Data.BQL.BqlInt.Field<preferredPackingMaterial> { }

@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "Bt8bD0TVzyRJMh9KD0nqaQoeEZrW1yJI7lNu6mj1lAwNoeeJtA8nKstUfYoXE4ldbTZq/+yo2Hb9Uj3J4PQb1A==",
+  "dgSpecHash": "3bC9GrfDXWMeDceTLS6YI5NWUNUUheoCmOXIC9Z7Z/e+vCJfMFcbewnQk7XTs0JgMjPtXAvbFGXm9/aSkmu2Ig==",
   "success": true,
-  "projectFilePath": "C:\\dev\\AM\\Hack2024Team4\\SustainabilityShipping\\CromulentBisgetti.ContainerPacking\\CromulentBisgetti.ContainerPacking.csproj",
+  "projectFilePath": "C:\\Acumatica\\23r2\\SustainShippers\\SustainabilityShipping\\CromulentBisgetti.ContainerPacking\\CromulentBisgetti.ContainerPacking.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\smith3j\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\smith3j\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+    "C:\\Users\\pchen\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\pchen\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
   ],
   "logs": []
 }
