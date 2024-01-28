@@ -236,25 +236,21 @@
   </FilterRows>
 </ChartSettings>]]></column>
                     </Widget>
-                    <SiteMap Title="Team 4 - Package Sustainability Tracking" Url="~/Frames/Default.aspx" NodeID="39bac703-8187-4732-b7c6-a16e546f80ee" ParentID="00000000-0000-0000-0000-000000000000" SelectedUI="E">
-                        <MUIScreen IsPortal="0" WorkspaceID="bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb" Order="30" SubcategoryID="29d8e453-ee74-405d-abe1-930728d1f9ba">
-                            <MUIPinnedScreen IsPortal="0" Username="" IsPinned="1" />
-                        </MUIScreen>
+                    <SiteMap Title="Sustainability Shipping Tracking" Url="~/frames/default.aspx?scrid=db000042" NodeID="39bac703-8187-4732-b7c6-a16e546f80ee" ParentID="00000000-0000-0000-0000-000000000000" SelectedUI="E">
+                        <MUIScreen IsPortal="0" WorkspaceID="845df89e-75da-4e73-b0de-3c9fce6204e6" Order="30" SubcategoryID="29d8e453-ee74-405d-abe1-930728d1f9ba" />
                     </SiteMap>
                 </row>
             </Dashboard>
             <MUIWorkspace>
-                <row IsPortal="1" WorkspaceID="bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb" Order="5" Title="Data Views" Icon="poll" IsSystem="1">
-                    <MUIFavoriteWorkspace IsPortal="0" Username="" IsFavorite="1" />
-                </row>
-                <row IsPortal="0" WorkspaceID="bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb" Order="32" Title="Data Views" Icon="poll" IsSystem="1">
-                    <MUIFavoriteWorkspace IsPortal="0" Username="" IsFavorite="1" />
-                </row>
+                <row IsPortal="0" WorkspaceID="845df89e-75da-4e73-b0de-3c9fce6204e6" Order="875" Title="Sustainable Shipping" Icon="shopping_cart" AreaID="62cfd5dc-8eb9-4e92-bbcd-e0a99eb5e5df" IsSystem="0" />
             </MUIWorkspace>
             <MUISubcategory>
                 <row IsPortal="1" SubcategoryID="29d8e453-ee74-405d-abe1-930728d1f9ba" Order="1478" Name="Dashboards" Icon="" IsSystem="1" />
-                <row IsPortal="0" SubcategoryID="29d8e453-ee74-405d-abe1-930728d1f9ba" Order="1478" Name="Dashboards" Icon="" IsSystem="1" />
+                <row IsPortal="0" SubcategoryID="29d8e453-ee74-405d-abe1-930728d1f9ba" Order="112" Name="Dashboards" Icon="" IsSystem="1" />
             </MUISubcategory>
+            <MUIArea>
+                <row IsPortal="0" AreaID="62cfd5dc-8eb9-4e92-bbcd-e0a99eb5e5df" Order="20" Name="Operations" />
+            </MUIArea>
         </data>
     </data-set>
 </Dashboard>
