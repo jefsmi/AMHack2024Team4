@@ -1,0 +1,187 @@
+﻿<Graph ClassName="SOShipmentEntry" Source="#CDATA" IsNew="True" FileType="ExistingGraph">
+    <CDATA name="Source"><![CDATA[using PX.Data.ReferentialIntegrity.Attributes;
+
+
+using System;
+using System.Linq;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.Immutable;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Threading;
+using PX.Data;
+using PX.Data.BQL;
+using PX.Data.BQL.Fluent;
+using PX.Data.WorkflowAPI;
+using PX.Common;
+using PX.Objects.AR;
+using PX.Objects.CM;
+using PX.Objects.CR;
+using PX.Objects.CS;
+using PX.Objects.EP;
+using PX.Objects.GL;
+using PX.Objects.IN;
+using PX.SM;
+using POLineType = PX.Objects.PO.POLineType;
+using POReceiptLine = PX.Objects.PO.POReceiptLine;
+using PX.CarrierService;
+using PX.Data.DependencyInjection;
+using PX.LicensePolicy;
+using PX.Objects.SO.Services;
+using PX.Objects.PO;
+using PX.Objects.AR.MigrationMode;
+using PX.Objects.Common;
+using PX.Objects.Common.Discount;
+using PX.Objects.Common.Extensions;
+using PX.Common.Collection;
+using PX.Objects.SO.GraphExtensions.CarrierRates;
+using PX.Objects.SO.GraphExtensions.SOShipmentEntryExt;
+using PX.Api;
+using ShipmentActions = PX.Objects.SO.SOShipmentEntryActionsAttribute;
+using PdfSharp.Pdf.IO;
+using PX.Objects.IN.Attributes;
+using PX.Concurrency;
+using PX.Objects.SO.GraphExtensions.SOOrderEntryExt;
+using PX.Objects.GL.FinPeriods.TableDefinition;
+using PX.Objects.GL.FinPeriods;
+using PX.Objects.IN.InventoryRelease;
+using PX.Objects.IN.InventoryRelease.Accumulators.QtyAllocated;
+using PX.Objects;
+using PX.Objects.SO;
+using CromulentBisgetti.ContainerPacking.Entities;
+using CromulentBisgetti.ContainerPacking.Algorithms;
+using CromulentBisgetti.ContainerPacking;
+using static PX.Objects.SO.SOShipmentEntry;
+
+namespace SustainabilityShipping
+{
+    public class SOShipmentEntry_Extension : PXGraphExtension<PackageDetail, PX.Objects.SO.SOShipmentEntry>
+    {
+        #region Event Handlers
+    
+    
+    [PXDBString(30, IsUnicode = true)]
+    [PXUIField(DisplayName = "Percent Filled")]
+    protected virtual void SOPackageDetailEx_Description_CacheAttached(PXCache cache)
+    {
+    
+    }
+    
+    
+        public PXAction<SOShipment> reCacluateBoxes;
+        [PXButton]
+        [PXUIField(DisplayName = "Re-calculate Boxes Updated")]
+        protected virtual IEnumerable ReCacluateBoxes(PXAdapter adapter)
+        {
+            Base.Packages.DeleteCurrent();
+            Base.Packages.View.RequestRefresh();
+
+            List<Container> containers = new List<Container>();
+            var boxes = PXSelect<CSBox, Where<CSBox.activeByDefault, Equal<Required<
+                CSBox.activeByDefault>>>>.Select(Base, true);
+            int counter = 0;
+            var containerMap = new System.Collections.Generic.Dictionary<int, string>();
+            foreach (CSBox item in boxes)
+            {
+                containers.Add(new Container(counter, item.Length.Value, item.Width.Value, item.Height.Value));
+                containerMap.Add(counter, item.BoxID);
+                counter++;
+            }
+
+
+            List<Item> itemsToPack = new List<Item>();
+
+            foreach (SOShipLine item in Base.Transactions.Select())
+            {
+                InventoryItem currentItem = PXSelect<InventoryItem, Where<InventoryItem.inventoryID,
+                    Equal<Required<InventoryItem.inventoryID>>>>.Select(Base, item.InventoryID);
+                SSHPackingMaterialsExtension currentItemExt = currentItem.GetExtension<SSHPackingMaterialsExtension>();
+                int currentPackedLenght = 1;
+                int currentPackedWidth = 1;
+                int currentPackedHeight = 1;
+                if (currentItemExt.PackedLength.HasValue && currentItemExt.PackedHeight.HasValue && currentItemExt.PackedWidth.HasValue)
+                {
+                    currentPackedLenght = (int)currentItemExt.PackedLength.Value;
+                    currentPackedWidth = (int)currentItemExt.PackedWidth.Value;
+                    currentPackedHeight = (int)currentItemExt.PackedHeight.Value;
+                }
+                itemsToPack.Add(new Item(item.LineNbr.Value, currentPackedLenght, currentPackedWidth, currentPackedHeight, (int)item.ShippedQty));
+            }
+
+            List<int> algorithms = new List<int>();
+            algorithms.Add((int)AlgorithmType.EB_AFIT);
+            int whileCounter = 0;
+            while (itemsToPack.Count > 0 && whileCounter <= 99)
+            {
+                List<ContainerPackingResult> result = PackingService.Pack(containers, itemsToPack, algorithms);
+                var effecientBox = (from r in result
+                                    orderby r.AlgorithmPackingResults[0].PercentContainerVolumePacked
+                   descending
+                                    select r).Take(1).FirstOrDefault();
+                SOPackageDetailEx box = new SOPackageDetailEx();
+                box.BoxID = containerMap[effecientBox.ContainerID];
+                box.Description = effecientBox.AlgorithmPackingResults[0].PercentContainerVolumePacked.ToString();
+                Base.Packages.Insert(box);
+                foreach (Item item in effecientBox.AlgorithmPackingResults[0].PackedItems)
+                {
+                    SOShipLineSplitPackage stockItem = new SOShipLineSplitPackage();
+                    stockItem.ShipmentLineNbr = item.ID;
+                    stockItem.PackedQty = item.Quantity;
+                    stockItem.PackageLineNbr = box.LineNbr;
+                    SOShipLineSplit lineSplit = PXSelect<SOShipLineSplit, Where<SOShipLineSplit.shipmentNbr, Equal<Required<SOShipLineSplit.
+                        shipmentNbr>>, And<SOShipLineSplit.lineNbr, Equal<Required<SOShipLineSplit.lineNbr>>>>>.
+                        Select(Base, Base.Document.Current.ShipmentNbr, stockItem.ShipmentLineNbr);
+                    stockItem.ShipmentSplitLineNbr = lineSplit.SplitLineNbr;
+                    stockItem = Base1.PackageDetailSplit.Insert(stockItem);
+                    SSHSOShipLinePackageExtension shipLineSplitPackageExt = stockItem.GetExtension<SSHSOShipLinePackageExtension>();
+                    SOShipLine shipLine = PXSelect<SOShipLine, Where<SOShipLine.shipmentNbr, Equal<Required<SOShipLine.shipmentNbr>>,
+                        And<SOShipLine.lineNbr, Equal<Required<SOShipLine.lineNbr>>>>>.Select(Base, Base.Document.Current.ShipmentNbr, stockItem.ShipmentLineNbr);
+                    InventoryItem currentItem = PXSelect<InventoryItem, Where<InventoryItem.inventoryID,
+                        Equal<Required<InventoryItem.inventoryID>>>>.Select(Base, shipLine.InventoryID);
+                    SSHPackingMaterialsExtension currentItemExt = currentItem.GetExtension<SSHPackingMaterialsExtension>();
+
+                    if (currentItemExt.PreferredPackingMaterial != null)
+                    {
+                        shipLineSplitPackageExt.PreferredPackingMaterial = currentItemExt.PreferredPackingMaterial;
+                        shipLineSplitPackageExt.PackingMaterialQty = currentItemExt.PackingMaterialQty;
+                    }
+                    else
+                    {
+                        var suggestedPackingMaterialList = PXSelect<InventoryItem, Where<SSHPackingMaterialsExtension.isPackingMaterial,
+                            Equal<Required<SSHPackingMaterialsExtension.isPackingMaterial>>>>.Select(Base, true);
+
+                        int i = 0;
+                        foreach (InventoryItem currentPackingMaterial in suggestedPackingMaterialList)
+                        {
+                            SSHPackingMaterialsExtension currentPackingMaterialExt = currentPackingMaterial.GetExtension<SSHPackingMaterialsExtension>();
+                            if (currentPackingMaterialExt.FragilityLevel >= currentItemExt.FragilityLevel)
+                            {
+                                if (shipLineSplitPackageExt.PreferredPackingMaterial == null)
+                                {
+                                    shipLineSplitPackageExt.PreferredPackingMaterial = currentPackingMaterialExt.InventoryID;
+                                    i = currentPackingMaterialExt.SustainabilityID.Value;
+                                }
+                                else if (currentPackingMaterialExt.SustainabilityID > i)
+                                {
+                                    shipLineSplitPackageExt.PreferredPackingMaterial = currentPackingMaterialExt.InventoryID;
+                                }
+
+                            }
+                        }
+                    }
+                    Base1.PackageDetailSplit.UpdateCurrent();
+                }
+                itemsToPack = effecientBox.AlgorithmPackingResults[0].UnpackedItems;
+                whileCounter++;
+            }
+            Base.Packages.View.RequestRefresh();
+            return adapter.Get();
+        }
+
+        #endregion
+
+
+    }
+}]]></CDATA>
+</Graph>
