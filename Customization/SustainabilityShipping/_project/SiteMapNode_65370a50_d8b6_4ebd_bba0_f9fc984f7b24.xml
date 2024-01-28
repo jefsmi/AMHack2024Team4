@@ -25,8 +25,19 @@
         </layout>
         <data>
             <SiteMap>
-                <row Position="21517" Title="Item Fragility Levels" Url="~/Pages/SS/SSHI2001.aspx" ScreenID="SSHI2001" NodeID="65370a50-d8b6-4ebd-bba0-f9fc984f7b24" ParentID="00000000-0000-0000-0000-000000000000" SelectedUI="E" />
+                <row Position="21517" Title="Item Fragility Levels" Url="~/Pages/SS/SSHI2001.aspx" ScreenID="SSHI2001" NodeID="65370a50-d8b6-4ebd-bba0-f9fc984f7b24" ParentID="00000000-0000-0000-0000-000000000000" SelectedUI="E">
+                    <MUIScreen IsPortal="0" WorkspaceID="845df89e-75da-4e73-b0de-3c9fce6204e6" Order="10" SubcategoryID="1669bef9-e982-485c-a48b-80ce30193385" />
+                </row>
             </SiteMap>
+            <MUIWorkspace>
+                <row IsPortal="0" WorkspaceID="845df89e-75da-4e73-b0de-3c9fce6204e6" Order="875" Title="Sustainable Shipping" Icon="shopping_cart" AreaID="62cfd5dc-8eb9-4e92-bbcd-e0a99eb5e5df" IsSystem="0" />
+            </MUIWorkspace>
+            <MUISubcategory>
+                <row IsPortal="0" SubcategoryID="1669bef9-e982-485c-a48b-80ce30193385" Order="96" Name="Configuration" Icon="" IsSystem="0" />
+            </MUISubcategory>
+            <MUIArea>
+                <row IsPortal="0" AreaID="62cfd5dc-8eb9-4e92-bbcd-e0a99eb5e5df" Order="20" Name="Operations" />
+            </MUIArea>
         </data>
     </data-set>
 </SiteMapNode>

@@ -12,7 +12,7 @@ namespace SustainabilityShipping
 
 
     public PXSelect<SSHLevelFragility> MasterView;
-    public PXSelect<SSHLevelFragility> DetailsView;
+
 
 
 
