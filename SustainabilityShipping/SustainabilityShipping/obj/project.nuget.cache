@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "hI5yVZCmwGMp5DrE3cZAysdNUYpvZqTdVRtPsb8jm5ylj5GOmz5Ua2YoqwsMQP2dp5D5roPlE9XtJZyZP8t9LA==",
+  "dgSpecHash": "qh639tkI6saCr06uUi61g2nM8E2CFI0pylZjzbYXbNTlPcupsMEkrgNtzwVn7/ImIGwhh/b7NsYpH40VhG1Pww==",
   "success": true,
-  "projectFilePath": "C:\\dev\\AM\\Hack2024Team4\\SustainabilityShipping\\SustainabilityShipping\\SustainabilityShipping.csproj",
+  "projectFilePath": "C:\\Acumatica\\23r2\\SustainShippers\\SustainabilityShipping\\SustainabilityShipping\\SustainabilityShipping.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\smith3j\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\5.0.0\\microsoft.bcl.asyncinterfaces.5.0.0.nupkg.sha512",
-    "C:\\Users\\smith3j\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
-    "C:\\Users\\smith3j\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512"
+    "C:\\Users\\pchen\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\5.0.0\\microsoft.bcl.asyncinterfaces.5.0.0.nupkg.sha512",
+    "C:\\Users\\pchen\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\pchen\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512"
   ],
   "logs": []
 }

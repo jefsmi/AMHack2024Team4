@@ -1,0 +1,78 @@
+﻿<Graph ClassName="InventoryItemMaint_Extension" Source="#CDATA" IsNew="True" FileType="NewFile">
+    <CDATA name="Source"><![CDATA[using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+using PX.Api;
+using PX.Api.Models;
+using PX.Common;
+using PX.Data;
+using PX.Data.BQL;
+using PX.Data.BQL.Fluent;
+using PX.Data.WorkflowAPI;
+using PX.Objects.AP;
+using PX.Objects.AR;
+using PX.Objects.CR;
+using PX.Objects.CS;
+using PX.Objects.DR;
+using PX.Objects.GL;
+using PX.Objects.PO;
+using PX.Objects.SO;
+using PX.Objects.RUTROT;
+using PX.Objects.Common.Discount;
+using PX.SM;
+using ItemStats = PX.Objects.IN.InventoryRelease.Accumulators.Statistics.Item.ItemStats;
+using ItemCost = PX.Objects.IN.InventoryRelease.Accumulators.Statistics.Item.ItemCost;
+using SiteStatusByCostCenter = PX.Objects.IN.InventoryRelease.Accumulators.QtyAllocated.SiteStatusByCostCenter;
+using PX.Objects.Common.GraphExtensions;
+using PX.Objects.CM;
+using PX.Objects.IN.GraphExtensions.InventoryItemMaintExt;
+using PX.Objects.TX;
+using PX.Objects.IN.InventoryRelease;
+using PX.Objects;
+using PX.Objects.IN;
+using SustainabilityShipping;
+using static PX.Data.Events;
+
+namespace PX.Objects.IN
+{
+  public class InventoryItemMaint_Extension : PXGraphExtension<PX.Objects.IN.InventoryItemMaint>
+  {    
+    public void _(Events.RowSelected<PX.Objects.IN.InventoryItem> e, PXRowSelected baseMethod)
+    {
+      baseMethod?.Invoke(e.Cache, e.Args);
+      SSHPackingMaterialsExtension ext = (SSHPackingMaterialsExtension) e.Row.GetExtension<SSHPackingMaterialsExtension>();
+      if(ext != null)
+      {
+        if(ext.IsPackingMaterial != null){
+      if((bool)ext.IsPackingMaterial)
+      {
+          PXUIFieldAttribute.SetVisible<SSHPackingMaterialsExtension.packingMaterialQty>(e.Cache, null, false);
+          PXUIFieldAttribute.SetVisible<SSHPackingMaterialsExtension.packingGuidance>(e.Cache, null, false);
+          PXUIFieldAttribute.SetVisible<SSHPackingMaterialsExtension.sustainabilityID>(e.Cache, null, true);
+          PXUIFieldAttribute.SetVisible<SSHPackingMaterialsExtension.preferredPackingMaterial>(e.Cache, null, false);
+          PXUIFieldAttribute.SetVisible<SSHPackingMaterialsExtension.packedWidth>(e.Cache, null, false);
+          PXUIFieldAttribute.SetVisible<SSHPackingMaterialsExtension.packedHeight>(e.Cache, null, false);
+          PXUIFieldAttribute.SetVisible<SSHPackingMaterialsExtension.packedLength>(e.Cache, null, false);
+      }
+      else
+      {
+          PXUIFieldAttribute.SetVisible<SSHPackingMaterialsExtension.sustainabilityID>(e.Cache, null, false);
+          PXUIFieldAttribute.SetVisible<SSHPackingMaterialsExtension.packingGuidance>(e.Cache, null, true);
+          PXUIFieldAttribute.SetVisible<SSHPackingMaterialsExtension.preferredPackingMaterial>(e.Cache, null, true);
+          PXUIFieldAttribute.SetVisible<SSHPackingMaterialsExtension.packedWidth>(e.Cache, null, true);
+          PXUIFieldAttribute.SetVisible<SSHPackingMaterialsExtension.packedHeight>(e.Cache, null, true);
+          PXUIFieldAttribute.SetVisible<SSHPackingMaterialsExtension.packedLength>(e.Cache, null, true);
+          PXUIFieldAttribute.SetVisible<SSHPackingMaterialsExtension.packingMaterialQty>(e.Cache, null, true);
+      }
+      }
+     }
+    }
+
+  
+    
+    
+  }
+}]]></CDATA>
+</Graph>

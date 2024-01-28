@@ -18,3 +18,14 @@ C:\dev\AM\Hack2024Team4\SustainabilityShipping\CromulentBisgetti.ContainerPackin
 C:\dev\AM\Hack2024Team4\SustainabilityShipping\CromulentBisgetti.ContainerPacking\obj\Debug\netstandard2.0\CromulentBisgetti.ContainerPacking.csproj.CoreCompileInputs.cache
 C:\dev\AM\Hack2024Team4\SustainabilityShipping\CromulentBisgetti.ContainerPacking\obj\Debug\netstandard2.0\CromulentBisgetti.ContainerPacking.dll
 C:\dev\AM\Hack2024Team4\SustainabilityShipping\CromulentBisgetti.ContainerPacking\obj\Debug\netstandard2.0\CromulentBisgetti.ContainerPacking.pdb
+C:\Acumatica\23r2\SustainShippers\SustainabilityShipping\CromulentBisgetti.ContainerPacking\bin\Debug\netstandard2.0\CromulentBisgetti.ContainerPacking.deps.json
+C:\Acumatica\23r2\SustainShippers\SustainabilityShipping\CromulentBisgetti.ContainerPacking\bin\Debug\netstandard2.0\CromulentBisgetti.ContainerPacking.dll
+C:\Acumatica\23r2\SustainShippers\SustainabilityShipping\CromulentBisgetti.ContainerPacking\bin\Debug\netstandard2.0\CromulentBisgetti.ContainerPacking.pdb
+C:\Acumatica\23r2\SustainShippers\SustainabilityShipping\CromulentBisgetti.ContainerPacking\obj\Debug\netstandard2.0\CromulentBisgetti.ContainerPacking.csproj.AssemblyReference.cache
+C:\Acumatica\23r2\SustainShippers\SustainabilityShipping\CromulentBisgetti.ContainerPacking\obj\Debug\netstandard2.0\CromulentBisgetti.ContainerPacking.GeneratedMSBuildEditorConfig.editorconfig
+C:\Acumatica\23r2\SustainShippers\SustainabilityShipping\CromulentBisgetti.ContainerPacking\obj\Debug\netstandard2.0\CromulentBisgetti.ContainerPacking.AssemblyInfoInputs.cache
+C:\Acumatica\23r2\SustainShippers\SustainabilityShipping\CromulentBisgetti.ContainerPacking\obj\Debug\netstandard2.0\CromulentBisgetti.ContainerPacking.AssemblyInfo.cs
+C:\Acumatica\23r2\SustainShippers\SustainabilityShipping\CromulentBisgetti.ContainerPacking\obj\Debug\netstandard2.0\CromulentBisgetti.ContainerPacking.csproj.CoreCompileInputs.cache
+C:\Acumatica\23r2\SustainShippers\SustainabilityShipping\CromulentBisgetti.ContainerPacking\obj\Debug\netstandard2.0\CromulentBisgetti.ContainerPacking.sourcelink.json
+C:\Acumatica\23r2\SustainShippers\SustainabilityShipping\CromulentBisgetti.ContainerPacking\obj\Debug\netstandard2.0\CromulentBisgetti.ContainerPacking.dll
+C:\Acumatica\23r2\SustainShippers\SustainabilityShipping\CromulentBisgetti.ContainerPacking\obj\Debug\netstandard2.0\CromulentBisgetti.ContainerPacking.pdb
