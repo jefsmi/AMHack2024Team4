@@ -12,6 +12,9 @@ using static PX.Objects.SO.SOShipmentEntry;
 using CromulentBisgetti.ContainerPacking.Entities;
 using CromulentBisgetti.ContainerPacking.Algorithms;
 using CromulentBisgetti.ContainerPacking;
+using System.ComponentModel;
+using Container = CromulentBisgetti.ContainerPacking.Entities.Container;
+
 namespace SustainabilityShipping
 {
     public class SOShipmentEntry_Extension : PXGraphExtension<PackageDetail, PX.Objects.SO.SOShipmentEntry>
@@ -30,7 +33,7 @@ namespace SustainabilityShipping
             }
             Base.Packages.View.RequestRefresh();
 
-            List<Container> containers = new List<Container>();
+            List<CromulentBisgetti.ContainerPacking.Entities.Container> containers = new List<CromulentBisgetti.ContainerPacking.Entities.Container>();
             var boxes = PXSelect<CSBox, Where<CSBox.activeByDefault, Equal<Required<
                 CSBox.activeByDefault>>>>.Select(Base, true);
             int counter = 0;
@@ -76,7 +79,22 @@ namespace SustainabilityShipping
                 box.BoxID = containerMap[effecientBox.ContainerID];
                 box.Description = effecientBox.AlgorithmPackingResults[0].PercentContainerVolumePacked.ToString();
                 Base.Packages.Insert(box);
+
+                var consolidatedItems = new System.Collections.Generic.Dictionary<int, Item>();
                 foreach (Item item in effecientBox.AlgorithmPackingResults[0].PackedItems)
+                {
+                    if (consolidatedItems.ContainsKey(item.ID))
+                    {
+                        consolidatedItems[item.ID].Quantity = consolidatedItems[item.ID].Quantity + item.Quantity;
+                    }
+                    else
+                    {
+                        consolidatedItems.Add(item.ID, item);
+                    }
+
+                }
+
+                foreach (Item item in consolidatedItems.Values)
                 {
                     SOShipLineSplitPackage stockItem = new SOShipLineSplitPackage();
                     stockItem.ShipmentLineNbr = item.ID;
